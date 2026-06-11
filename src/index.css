@@ -1,0 +1,308 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+/* ── DARK THEME (default) ──────────────────────────── */
+:root,
+[data-theme="dark"] {
+  --bg-primary:    #0b0f19;   /* Deep space blue/black */
+  --bg-secondary:  #05070c;   /* Even deeper space black */
+  --bg-card:       #ffffff;
+  --border-card:   #000000;
+  --cyan:          #22d3ee;   /* Electric Neon Cyan */
+  --cyan-dark:     #0891b2;
+  --violet:        #a78bfa;   /* Vibrant Lavender Violet */
+  --violet-light:  #c084fc;
+  --pink:          #f43f5e;
+  --text-primary:  #ffffff;
+  --text-secondary:#cbd5e1;
+  --text-muted:    #64748b;
+  --glow-cyan:     none;
+  --glow-violet:   none;
+  --gradient-hero: #0b0f19;
+  --gradient-accent: linear-gradient(135deg, #22d3ee, #a78bfa);
+  --gradient-text: linear-gradient(135deg, #ffffff, #22d3ee);
+  --font-primary:  'Satoshi', sans-serif;
+  --font-display:  'Cabinet Grotesk', sans-serif;
+  --radius-card:   12px;
+  --transition:    0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --nav-bg:        #22d3ee;   /* Spotlight-like cyan */
+  --nav-border:    #000000;
+  --shadow-card:   4px 4px 0px 0px #000000;
+  --input-bg:      #ffffff;
+  --input-border:  #000000;
+}
+
+/* ── LIGHT THEME ────────────────────────────────────── */
+[data-theme="light"] {
+  --bg-primary:    #e0e7ff;   /* Soft Lavender */
+  --bg-secondary:  #ffedd5;   /* Soft Apricot/Peach */
+  --bg-card:       #ffffff;
+  --border-card:   #000000;
+  --cyan:          #0f172a;   /* Dark Slate */
+  --cyan-dark:     #020617;
+  --violet:        #4f46e5;   /* Indigo */
+  --violet-light:  #c7d2fe;   /* Soft Light Indigo */
+  --pink:          #ec4899;
+  --text-primary:  #0f172a;
+  --text-secondary:#312e81;   /* Dark Indigo */
+  --text-muted:    #4b5563;
+  --glow-cyan:     none;
+  --glow-violet:   none;
+  --gradient-hero: #e0e7ff;
+  --gradient-accent: linear-gradient(135deg, #0f172a, #4f46e5);
+  --gradient-text: linear-gradient(135deg, #0f172a, #4f46e5);
+  --font-primary:  'Satoshi', sans-serif;
+  --font-display:  'Cabinet Grotesk', sans-serif;
+  --radius-card:   12px;
+  --transition:    0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --nav-bg:        #0f172a;   /* Dark Slate background for nav */
+  --nav-border:    #000000;
+  --shadow-card:   4px 4px 0px 0px #000000;
+  --input-bg:      #ffffff;
+  --input-border:  #000000;
+}
+
+/* ── BASE STYLES ────────────────────────────────────── */
+body {
+  margin: 0;
+  font-family: var(--font-primary), sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display), sans-serif;
+  margin: 0;
+}
+
+/* Glass card styling */
+.glass {
+  background: var(--bg-card);
+  border: 2px solid var(--border-card);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  color: #000000;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.glass-hover:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 8px 8px 0px 0px var(--border-card);
+}
+
+/* Button styles */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--cyan);
+  color: var(--bg-primary);
+  border: 2px solid var(--border-card);
+  border-radius: var(--radius-card);
+  padding: 10px 20px;
+  font-family: var(--font-primary), sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition), box-shadow var(--transition);
+  text-decoration: none;
+}
+.btn-primary:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px 0px var(--border-card);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-card);
+  color: var(--border-card);
+  border: 2px solid var(--border-card);
+  border-radius: var(--radius-card);
+  padding: 10px 20px;
+  font-family: var(--font-primary), sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition), box-shadow var(--transition);
+  text-decoration: none;
+}
+.btn-outline:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px 0px var(--border-card);
+}
+
+.btn-nb-push {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: 2px solid #000000;
+  border-radius: var(--radius-card);
+  box-shadow: 4px 4px 0px 0px #000000;
+  transition: all var(--transition);
+  cursor: pointer;
+}
+.btn-nb-push:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px 0px #000000;
+}
+
+/* Tech badge */
+.tech-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-card);
+  border-radius: 8px;
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #000000;
+}
+
+/* Section Tag */
+.section-tag {
+  display: inline-block;
+  background: var(--cyan);
+  color: var(--bg-primary);
+  border: 1.5px solid var(--border-card);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Input Field */
+.input-field {
+  background: var(--input-bg);
+  border: 2px solid var(--input-border);
+  border-radius: var(--radius-card);
+  padding: 12px 16px;
+  color: #000000;
+  font-family: var(--font-primary), sans-serif;
+  width: 100%;
+  box-shadow: var(--shadow-card);
+  outline: none;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.input-field:focus {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px 0px var(--border-card);
+}
+
+/* Section Divider */
+.section-divider {
+  height: 2px;
+  background: var(--border-card);
+  margin: 60px 0;
+}
+
+.particles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+}
+
+.bg-nb-yellow-dots {
+  background-color: #ffe17c !important;
+  background-image: radial-gradient(#000000 10%, transparent 11%) !important;
+  background-size: 32px 32px !important;
+}
+
+.text-stroke-nb {
+  -webkit-text-stroke: 1.5px var(--text-primary);
+  text-stroke: 1.5px var(--text-primary);
+  color: transparent;
+}
+
+@keyframes stripes-move {
+  0% { background-position: 0 0; }
+  100% { background-position: 40px 0; }
+}
+
+.nb-stripes {
+  background-image: linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.08) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(0, 0, 0, 0.08) 50%,
+    rgba(0, 0, 0, 0.08) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 40px 40px;
+  animation: stripes-move 2s linear infinite;
+}
+
+/* ── SPECTACULAR MESH GRADIENT BG (Superdesign/Stitch style) ── */
+@keyframes mesh-drift {
+  0% {
+    background-position: 0% 0%, 10% 20%, 90% 10%, 50% 80%;
+  }
+  50% {
+    background-position: 0% 0%, 90% 80%, 10% 90%, 80% 20%;
+  }
+  100% {
+    background-position: 0% 0%, 10% 20%, 90% 10%, 50% 80%;
+  }
+}
+
+.mesh-bg-dark {
+  background-color: #171e19;
+  background-image:
+    radial-gradient(circle at 1.5px 1.5px, rgba(255, 255, 255, 0.05) 1.5px, transparent 1.5px),
+    radial-gradient(circle at 10% 20%, rgba(34, 211, 238, 0.12) 0px, transparent 55%),
+    radial-gradient(circle at 90% 10%, rgba(167, 139, 250, 0.12) 0px, transparent 55%),
+    radial-gradient(circle at 50% 80%, rgba(236, 72, 153, 0.08) 0px, transparent 50%);
+  background-size: 32px 32px, 200% 200%, 200% 200%, 200% 200%;
+  animation: mesh-drift 22s ease-in-out infinite;
+}
+
+.mesh-bg-light {
+  background-color: #ffe17c;
+  background-image:
+    radial-gradient(circle at 1.5px 1.5px, rgba(0, 0, 0, 0.08) 1.5px, transparent 1.5px),
+    radial-gradient(circle at 10% 20%, rgba(251, 146, 60, 0.22) 0px, transparent 55%),
+    radial-gradient(circle at 90% 10%, rgba(74, 222, 128, 0.18) 0px, transparent 55%),
+    radial-gradient(circle at 50% 80%, rgba(244, 63, 94, 0.14) 0px, transparent 50%);
+  background-size: 32px 32px, 200% 200%, 200% 200%, 200% 200%;
+  animation: mesh-drift 22s ease-in-out infinite;
+}
+
+/* ── SPOTLIGHT NAVBAR ───────────────────────────────── */
+.spotlight-nav {
+  --spotlight-color: rgba(0,0,0,0.06);
+  --ambience-color: rgba(0,0,0,0.7);
+}
+[data-theme="dark"] .spotlight-nav {
+  --spotlight-color: rgba(255,255,255,0.12);
+  --ambience-color: rgba(255,255,255,1);
+}
+.spotlight-nav-bg {
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+}
+[data-theme="dark"] .spotlight-nav-bg {
+  background-color: rgba(15, 20, 17, 0.75);
+}
+.glass-border {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+[data-theme="dark"] .glass-border {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.spotlight-nav-shadow {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+[data-theme="dark"] .spotlight-nav-shadow {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
