@@ -99,9 +99,6 @@ export const CreepyButton = ({
   const finalCoverClassName = cn(
     "absolute inset-0 flex items-center justify-center pr-12 pl-6 rounded-[10px] font-bold tracking-wide transition-colors",
     "origin-[1.25em_50%] border-2 border-black z-10",
-    variant === "primary"
-      ? "bg-[var(--cyan)] text-[var(--btn-primary-text)]"
-      : "bg-[var(--bg-card)] text-black",
     coverClassName
   );
 
@@ -130,6 +127,10 @@ export const CreepyButton = ({
       {/* Button Cover */}
       <motion.span
         className={finalCoverClassName}
+        style={{
+          backgroundColor: variant === "primary" ? "var(--cyan)" : "var(--bg-card)",
+          color: variant === "primary" ? "var(--btn-primary-text)" : "black"
+        }}
         animate={{
           rotate: isHovered ? -10 : 0,
           y: isHovered ? -2 : 0,
