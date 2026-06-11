@@ -30,6 +30,7 @@
   --shadow-card:   4px 4px 0px 0px #000000;
   --input-bg:      #ffffff;
   --input-border:  #000000;
+  --btn-primary-text: #000000;
 }
 
 /* ── LIGHT THEME ────────────────────────────────────── */
@@ -60,6 +61,7 @@
   --shadow-card:   4px 4px 0px 0px #000000;
   --input-bg:      #ffffff;
   --input-border:  #000000;
+  --btn-primary-text: #ffffff;
 }
 
 /* ── BASE STYLES ────────────────────────────────────── */
